@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: v003-1-create-users-table
+      context: ddl
+      author: Joao Vitor de Oliveira Santos
+      changes:
+        - createTable:
+            schemaName: custom_survey
+            tableName: tb_users
+            columns:
+              - column:
+                  name: id
+                  type: numeric(10, 0)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_users
+              - column:
+                  name: name
+                  type: varchar2(60)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar2(70)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: password
+                  type: varchar2(120)
+                  constraints:
+                    nullable: false
